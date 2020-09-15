@@ -15,7 +15,7 @@ namespace Receiver
 			}
 		}
 
-		void DataStreamParser::splitColumnData(std::stringstream& data, Column& column)
+		void splitColumnData(std::stringstream& data, Column& column)
 		{
 			std::string line, word;
 			std::stringstream lineContent;
@@ -31,7 +31,7 @@ namespace Receiver
 			}
 		}
 
-		void DataStreamParser::checkForDelimiter(std::stringstream& lineContent, Column& column)
+		void checkForDelimiter(std::stringstream& lineContent, Column& column)
 		{
 			std::string word;
 			while (std::getline(lineContent, word, ' '))

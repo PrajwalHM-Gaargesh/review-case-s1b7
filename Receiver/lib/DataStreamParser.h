@@ -13,6 +13,9 @@ namespace Receiver
 			std::vector<std::string> _columnData;
 		};
 
+		void splitColumnData(std::stringstream& data, Column& column);
+		void checkForDelimiter(std::stringstream&, Column& column);
+
 		class DataStreamParser
 		{
 		private:
@@ -23,8 +26,6 @@ namespace Receiver
 			DataStreamParser(std::string& data) : _filteredData(data) {}
 			DataStreamParser(DataStreamParser& data_stream_parser) : _columns(data_stream_parser._columns), _filteredData(data_stream_parser._filteredData) {}
 			void handleParsedData(std::string&);
-			void splitColumnData(std::stringstream& data, Column& column);
-			void checkForDelimiter(std::stringstream&, Column& column);
 		    std::vector<Column>& getColumns();
 			int updateColumnLabels(std::string&);
 		};
