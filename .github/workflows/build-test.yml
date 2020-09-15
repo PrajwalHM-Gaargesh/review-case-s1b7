@@ -44,8 +44,7 @@ jobs:
 
     - name: static analysis
 
-      run: cppcheck --enable=all --force --error-exitcode=1 .
-
+      run:  cppcheck Receiver/lib/ --error-exitcode=1.
       
 
     - name: run
