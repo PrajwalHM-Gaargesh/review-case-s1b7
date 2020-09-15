@@ -44,7 +44,7 @@ jobs:
 
     - name: static analysis
 
-      run: cppcheck --enable=all --force -x ./Receiver/ReceiverTest/catch.hpp --error-exitcode=1 .
+      run: cppcheck --enable=all --force --error-exitcode=1 .
 
       
 
