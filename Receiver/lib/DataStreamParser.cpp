@@ -16,7 +16,7 @@ namespace Receiver
 
 		void splitColumnData(std::stringstream& data, Column& column)
 		{
-			std::string line, word;
+			std::string line;
 			std::stringstream lineContent;
 			while (std::getline(data, line))
 			{
