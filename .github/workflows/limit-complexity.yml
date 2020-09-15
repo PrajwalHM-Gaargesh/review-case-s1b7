@@ -36,4 +36,4 @@ jobs:
 
     - name: Limit complexity
 
-      run: $HOME/.local/bin/lizard --CCN 3 -x"./catch.hpp"
+      run: $HOME/.local/bin/lizard --CCN 4 -x"./catch.hpp"
