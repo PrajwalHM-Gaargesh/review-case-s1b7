@@ -11,7 +11,7 @@
 
 TEST_CASE("When header row is parsed and header row is empty, Then raise error") {
 	CsvFileParser csvfp;
-	std::fstream dummyFile("dummy.csv");
+	std::fstream dummyFile("sample-review/dummy.csv");
 	csvfp.parseHeader(dummyFile);
 	REQUIRE((headerList.size()) == 2);
 }
