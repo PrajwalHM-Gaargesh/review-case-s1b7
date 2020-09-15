@@ -5,6 +5,7 @@
 #include <string>
 #include <regex>
 #include <map>
+#include <memory>
 
 std::vector<std::string> headerList;
 std::map<std::string, std::vector<std::string>> parsedCsvFile;
@@ -65,7 +66,7 @@ bool Sender::start() {
 	}
 
 	ColumnFilter* filter = new ColumnFilter(args);
-	std::unique<Validator> validate = std::make_unique<Validator>();
+	std::unique_ptr<Validator> validate = std::make_unique<Validator>();
 
 	fileParser->parseHeader(csvFile);
 	validate.validateHeaders();
