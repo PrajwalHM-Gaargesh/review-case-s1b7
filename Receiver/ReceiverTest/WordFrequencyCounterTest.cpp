@@ -1,6 +1,6 @@
-//#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
+#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 
-#include "../lib/WordFrequencyCounter.h"
+#include "../lib/WordFrequencyCounter.cpp"
 #include "catch.hpp"
 #include <cctype>
 #include <experimental/filesystem>
@@ -65,21 +65,21 @@ TEST_CASE("transformColumnData when provided with non-empty stream converts the 
 	}
 }
 
-TEST_CASE("outPutWordCountResult when called displays output result and writes same result to a csv file")
-{
-	//to fill columnData
-	DataStreamParser data_stream_parser;
-	std::string data{ "THIS IS FIRST COMMENT\nTHIS IS SECOND COMMENT\n+-+\n" };
-	std::string label{ "reviews,dates" };
-
-	data_stream_parser.updateColumnLabels(label);
-	data_stream_parser.handleParsedData(data);
-
-	WordFrequencyCounter word_frequency(data_stream_parser);
-	word_frequency.transformColumnData();
-	word_frequency.wordFrequency();
-	word_frequency.outputWordCountResult();
-
-	REQUIRE(std::experimental::filesystem::exists("FinalResult.csv"));
-}
+//TEST_CASE("outPutWordCountResult when called displays output result and writes same result to a csv file")
+//{
+//	//to fill columnData
+//	DataStreamParser data_stream_parser;
+//	std::string data{ "THIS IS FIRST COMMENT\nTHIS IS SECOND COMMENT\n+-+\n" };
+//	std::string label{ "reviews,dates" };
+//
+//	data_stream_parser.updateColumnLabels(label);
+//	data_stream_parser.handleParsedData(data);
+//
+//	WordFrequencyCounter word_frequency(data_stream_parser);
+//	word_frequency.transformColumnData();
+//	word_frequency.wordFrequency();
+//	word_frequency.outputWordCountResult();
+//
+//	REQUIRE(std::experimental::filesystem::exists("FinalResult.csv"));
+//}
 
