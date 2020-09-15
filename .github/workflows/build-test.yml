@@ -36,10 +36,16 @@ jobs:
 
       
 
-    - name: build
+    - name: build Reciever
 
-      run: g++ -Wall -Wextra -Werror --coverage -o testchecker Receiver/lib/*.cpp
-
+      run: g++ -Wall -Wextra -Werror --coverage -o testreciever Receiver/lib/*.cpp
+      
+    - name: build receiverTestApplication
+     
+      run: g++ -Wall -Wextra -Werror --coverage -o receiverTestapp Receiver/ReceiverTest/*.cpp     
+      
+    - name: build Sender
+      run: g++ -Wall -Wextra -Werror --coverage -o testsender Sender/lib/*.cpp
       
 
     - name: static analysis
@@ -49,10 +55,12 @@ jobs:
 
     - name: run
 
-      run: ./testchecker
+      run: ./testsender | ./testreciever
 
-    
+    - name: run receiverTestApplication
 
-    - name: coverage report
+      run: ./receiverTestapp
 
-      run: gcov -r *.cpp
+    - name: receiver coverage report
+
+      run:  gcov Receiver/ReceiverTest/*.cpp

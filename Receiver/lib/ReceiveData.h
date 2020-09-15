@@ -11,6 +11,7 @@ namespace Receiver
 		public:
 			ReceiveData() = default;
 			void start(std::string&);
+			std::string acceptInput();
 		};
 	}
 }
