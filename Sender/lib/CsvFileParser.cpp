@@ -2,6 +2,11 @@
 #include <sstream>
 #include <iostream>
 
+CsvFileParser::CsvFileParser(){
+	parsedCsvFile.clear();
+	headerList.clear();
+}
+
 void fillMap(std::string rows) {
 
 	if (rows.size() <= 2) {
@@ -48,11 +53,3 @@ void CsvFileParser::parseRow(std::fstream& csvFile) {
 	}
 
 }
-
-/*std::map<std::string, std::vector<std::string>> CsvFileParser::getParsedCsv() {
-	return _parsedCsvFile;
-}*/
-
-/*std::vector<std::string> CsvFileParser::getHeaderList() {
-	return _csvHeaderList;
-}*/
