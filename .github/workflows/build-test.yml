@@ -31,7 +31,6 @@ jobs:
     
 
     - name: install cppcheck static analysis
-
       run: sudo apt-get update && sudo apt-get install -y cppcheck
 
       
@@ -43,11 +42,12 @@ jobs:
       run: g++ -Wall -Wextra -Werror --coverage -o testsender Sender/lib/*.cpp
       
     - name: build receiverTestApplication
-      run: g++ -Wall -Wextra -Werror --coverage -o receiverTestapp Receiver/ReceiverTest/*.cpp     
+      run: g++ -Wall -Wextra -Werror --coverage -o receiverTestapp Receiver/ReceiverTest/*.cpp
+           mv *.gcno Receiver/ReceiverTest/ 
       
     - name: build senderTestApplication
       run: g++ -Wall -Wextra -Werror --coverage -o senderTestapp Sender/SenderTest/*.cpp
-      
+         
 
     - name: Reciever static analysis
       run:  cppcheck Receiver/lib/ --error-exitcode=1.
@@ -60,9 +60,10 @@ jobs:
 
     - name: run receiverTestApplication
       run: ./receiverTestapp
+           mv *.gcda Receiver/ReceiverTest/
       
     - name: run senderTestApplication
       run: ./senderTestapp
 
     - name: receiver coverage report
-      run:  gcov Receiver/ReceiverTest/*.cpp
+      run:  gcov -r Receiver/ReceiverTest/*.cpp
