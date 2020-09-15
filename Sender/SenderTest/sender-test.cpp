@@ -33,7 +33,7 @@ TEST_CASE("When an invalid file extension is passed, then exit without proceedin
 TEST_CASE("When a valid file is passed, Then proceed with analysis") {
 	DummyParser* dp = new DummyParser;
 	DummyOutput* dop = new DummyOutput;
-	char* ar[] = {(char*)"Hello", (char*)"dummy.csv"};
+	char* ar[] = {(char*)"Hello", (char*)"sample-review/dummy.csv"};
 	Sender* send = new Sender(dp, dop, 2, ar);
 	REQUIRE((send->start())==true);
 }
