@@ -18,7 +18,7 @@ TEST_CASE("When header row is parsed and header row is empty, Then raise error")
 
 TEST_CASE("When parsed row contains empty rows, then ignore the row") {
 	CsvFileParser csvfp;
-	std::fstream dummyFile("dummy.csv");			//12 total rows, 7 non empty rows
+	std::fstream dummyFile("sample-review/dummy.csv");			//12 total rows, 7 non empty rows
 	csvfp.parseHeader(dummyFile);
 	csvfp.parseRow(dummyFile);
 	auto itr = parsedCsvFile.begin();
