@@ -36,10 +36,12 @@ jobs:
 
       
 
-    - name: build
+    - name: build Reciever
 
-      run: g++ -Wall -Wextra -Werror --coverage -o testchecker Receiver/lib/*.cpp
-
+      run: g++ -Wall -Wextra -Werror --coverage -o testreciever Receiver/lib/*.cpp
+      
+    - name: build Sender
+      run: g++ -Wall -Wextra -Werror --coverage -o testsender Sender/lib/*.cpp
       
 
     - name: static analysis
@@ -49,7 +51,7 @@ jobs:
 
     - name: run
 
-      run: ./testchecker
+      run: ./testsender | ./testreciever
 
     
 
