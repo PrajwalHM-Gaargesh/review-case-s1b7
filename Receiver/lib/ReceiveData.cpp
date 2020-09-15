@@ -1,6 +1,7 @@
 #include "ReceiveData.h"
 #include "DataStreamParser.h"
 #include "WordFrequencyCounter.h"
+#include <iostream>
 
 namespace Receiver
 {
@@ -15,6 +16,21 @@ namespace Receiver
 			word.transformColumnData();
 			word.wordFrequency();
 			word.outputWordCountResult();
+		}
+
+		std::string ReceiveData::acceptInput()
+		{
+			std::string content, word;
+			while (std::getline(std::cin, word))
+			{
+				if (!word.empty())
+				{
+					if (word == "-+-")
+						break;
+					content.append(word).append("\n");
+ 				}
+			}
+			return content;
 		}
 	}
 }
