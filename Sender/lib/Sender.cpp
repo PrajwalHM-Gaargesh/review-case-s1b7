@@ -65,10 +65,10 @@ bool Sender::start() {
 	}
 
 	ColumnFilter* filter = new ColumnFilter(args);
-	Validator* validate = new Validator();
+	std::unique<Validator> validate = std::make_unique<Validator>();
 
 	fileParser->parseHeader(csvFile);
-	validate->validateHeaders();
+	validate.validateHeaders();
 
 	fileParser->parseRow(csvFile);
 
