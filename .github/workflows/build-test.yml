@@ -43,7 +43,8 @@ jobs:
       
     - name: build receiverTestApplication
       run: g++ -Wall -Wextra -Werror --coverage -o receiverTestapp Receiver/ReceiverTest/*.cpp
-           mv *.gcno Receiver/ReceiverTest/ 
+    - name: move gcno to receiver test dir
+      run: mv *.gcno Receiver/ReceiverTest/    
       
     - name: build senderTestApplication
       run: g++ -Wall -Wextra -Werror --coverage -o senderTestapp Sender/SenderTest/*.cpp
@@ -52,15 +53,14 @@ jobs:
     - name: Reciever static analysis
       run:  cppcheck Receiver/lib/ --error-exitcode=1.
       
-    - name: Sender static analysis
-      run:  cppcheck Sender/lib/ --error-exitcode=1.
 
     - name: run
       run: ./testsender sample-review/review-report.csv | ./testreciever
 
     - name: run receiverTestApplication
       run: ./receiverTestapp
-           mv *.gcda Receiver/ReceiverTest/
+    - name: move .gcda files to receiver test dir
+      run:  mv *.gcda Receiver/ReceiverTest/
       
     - name: run senderTestApplication
       run: ./senderTestapp
