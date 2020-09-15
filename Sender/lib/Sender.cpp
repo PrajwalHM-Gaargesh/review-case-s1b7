@@ -69,7 +69,7 @@ bool Sender::start() {
 	std::unique_ptr<Validator> validate = std::make_unique<Validator>();
 
 	fileParser->parseHeader(csvFile);
-	validate.validateHeaders();
+	validate->validateHeaders();
 
 	fileParser->parseRow(csvFile);
 
