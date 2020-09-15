@@ -58,7 +58,7 @@ jobs:
       run:  cppcheck Sender/lib/ --error-exitcode=1.
 
     - name: run
-      run: ./testsender sample-review/review-report.csv | ./testreciever
+      run: ./testsender sample-review/dummy.csv | ./testreciever
 
     - name: run receiverTestApplication
       run: ./receiverTestapp
