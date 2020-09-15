@@ -4,7 +4,6 @@
 
 #include "../lib/Sender.cpp"
 #include "../lib/Validator.cpp"
-//#include "../lib/ColumnFilter.cpp"
 
 class DummyOutput : public IOutput {
 private:
@@ -18,12 +17,11 @@ private:
 	bool pr = false;
 public:
 	DummyParser() { ph = false; pr = false; }
-	void parseHeader(std::fstream& fs) { ph = true; }
-	void parseRow(std::fstream& fs) { pr = true; }
+	void parseHeader(std::fstream& fs) { fs.close();ph = true; }
+	void parseRow(std::fstream& fs) { fs.close();pr = true; }
 };
 
 TEST_CASE("When an invalid file extension is passed, then exit without proceeding") {
-	std::fstream dummyStream;
 	DummyParser* dp = new DummyParser;
 	DummyOutput* dop = new DummyOutput;
 	char* ar[] = {(char*)"Hello", (char*)"There"};
@@ -33,7 +31,6 @@ TEST_CASE("When an invalid file extension is passed, then exit without proceedin
 }
 
 TEST_CASE("When a valid file is passed, Then proceed with analysis") {
-	std::fstream dummyStream;
 	DummyParser* dp = new DummyParser;
 	DummyOutput* dop = new DummyOutput;
 	char* ar[] = {(char*)"Hello", (char*)"dummy.csv"};
