@@ -62,8 +62,10 @@ jobs:
     - name: move .gcda files to receiver test dir
       run:  mv *.gcda Receiver/ReceiverTest/
       
+    - name: receiver coverage report
+      run:  gcov -r Receiver/ReceiverTest/*.cpp
+      
     - name: run senderTestApplication
       run: ./senderTestapp
 
-    - name: receiver coverage report
-      run:  gcov -r Receiver/ReceiverTest/*.cpp
+
