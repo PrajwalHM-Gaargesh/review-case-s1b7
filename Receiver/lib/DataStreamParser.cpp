@@ -6,8 +6,7 @@ namespace Receiver
 	{
 		void DataStreamParser::handleParsedData(std::string& data)
 		{
-			std::string line,word;
-			std::stringstream streamContent,lineContent;
+			std::stringstream streamContent;
 			streamContent << data;
 			for(auto& column : _columns)
 			{

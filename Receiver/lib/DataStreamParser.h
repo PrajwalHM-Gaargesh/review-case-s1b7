@@ -23,8 +23,8 @@ namespace Receiver
 			std::string _filteredData;
 		public:
 			DataStreamParser() = default;
-			DataStreamParser(std::string& data) : _filteredData(data) {}
-			DataStreamParser(DataStreamParser& data_stream_parser) : _columns(data_stream_parser._columns), _filteredData(data_stream_parser._filteredData) {}
+			explicit DataStreamParser(std::string& data) : _filteredData(data) {}
+			explicit DataStreamParser(DataStreamParser& data_stream_parser) : _columns(data_stream_parser._columns), _filteredData(data_stream_parser._filteredData) {}
 			void handleParsedData(std::string&);
 		    std::vector<Column>& getColumns();
 			int updateColumnLabels(std::string&);

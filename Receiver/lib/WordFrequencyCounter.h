@@ -21,7 +21,7 @@ namespace Receiver
 
 		public:
 			WordFrequencyCounter() = default;
-			WordFrequencyCounter(DataStreamParser& data_stream_parser) : _dataStreamParser(data_stream_parser) {}
+			explicit WordFrequencyCounter(DataStreamParser& data_stream_parser) : _dataStreamParser(data_stream_parser) {}
 			void wordFrequency();
 			void transformColumnData();
 			void outputWordCountResult();
