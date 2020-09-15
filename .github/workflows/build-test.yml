@@ -37,30 +37,32 @@ jobs:
       
 
     - name: build Reciever
-
       run: g++ -Wall -Wextra -Werror --coverage -o testreciever Receiver/lib/*.cpp
-      
-    - name: build receiverTestApplication
-     
-      run: g++ -Wall -Wextra -Werror --coverage -o receiverTestapp Receiver/ReceiverTest/*.cpp     
-      
+  
     - name: build Sender
       run: g++ -Wall -Wextra -Werror --coverage -o testsender Sender/lib/*.cpp
       
-
-    - name: static analysis
-
-      run:  cppcheck Receiver/lib/ --error-exitcode=1.
+    - name: build receiverTestApplication
+      run: g++ -Wall -Wextra -Werror --coverage -o receiverTestapp Receiver/ReceiverTest/*.cpp     
+      
+    - name: build senderTestApplication
+      run: g++ -Wall -Wextra -Werror --coverage -o senderTestapp Sender/SenderTest/*.cpp
       
 
-    - name: run
+    - name: Reciever static analysis
+      run:  cppcheck Receiver/lib/ --error-exitcode=1.
+      
+    - name: Sender static analysis
+      run:  cppcheck Sender/lib/ --error-exitcode=1.
 
-      run: ./testsender | ./testreciever
+    - name: run
+      run: ./testsender sample-review/review-report.csv | ./testreciever
 
     - name: run receiverTestApplication
-
       run: ./receiverTestapp
+      
+    - name: run senderTestApplication
+      run: ./senderTestapp
 
     - name: receiver coverage report
-
       run:  gcov Receiver/ReceiverTest/*.cpp
