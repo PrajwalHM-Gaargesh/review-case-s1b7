@@ -1,0 +1,18 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/slnx.sqlite-journal
+/.vs/slnx.sqlite
+/.vs/review-case-s1b7/v15/.suo
+/.vs/ProjectSettings.json
+/Receiver/.vs/Receiver/v15/ipch/AutoPCH/7295d0b974f3b680/RECEIVERTEST.ipch
+/Receiver/.vs/Receiver/v15/ipch/AutoPCH/950150cd576afb60/LIB.ipch
+/Receiver/.vs/Receiver/v15/Browse.VC.opendb
+/Receiver/.vs/Receiver/v15/Browse.VC.db
+/Receiver/.vs/Receiver/v15/.suo
+/Receiver/bin
+/Receiver/intermediates
+/Receiver/lib/FinalResult.csv
+/Receiver/Receiver/FinalResult.csv
+/Receiver/Receiver/res.txt
