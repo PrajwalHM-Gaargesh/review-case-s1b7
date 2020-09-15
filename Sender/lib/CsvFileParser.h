@@ -14,4 +14,5 @@ class CsvFileParser : public IFileParser {
 public:
 	void parseHeader(std::fstream&);
 	void parseRow(std::fstream&);
+	CsvFileParser();
 };
